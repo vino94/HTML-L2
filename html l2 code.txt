@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: black;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Add padding to containers */
+.container {
+    padding: 16px;
+    background-color: white;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+
+/* Set a style for the submit button */
+.registerbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+.registerbtn:hover {
+    opacity: 1;
+}
+
+/* Add a blue text color to links */
+a {
+    color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+
+</style>
+</head>
+<body>
+
+<form action="/action_page.php">
+  <div class="container">
+    <h1>Register</h1>
+    <p>Please fill in this form to create an account.</p>
+     <div class="container signin">
+    <p>Already have an account? <a href="#">Sign in</a>.</p>
+  </div>
+    <hr>
+    
+     <label for="memb"><b>Registered As*</b></label><br>
+    <input  name="memb" id="memb" placeholder="Select Member Type"list="member" required><br>
+    
+<br>
+    <label for="email"><b>Email*</b></label>
+    <input type="text" placeholder="Enter Email" name="email" required>
+
+    <label for="psw"><b>Password*</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+
+    <label for="psw-repeat"><b>Repeat Password</b></label>
+    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+    
+    <label for="first"><b>Full Name*</b></label>
+    <input type="text" name="first" placeholder="First Name" required>
+    
+    <label for="Middle"> </label>
+    <input type="text" name="Middle"  placeholder="Middle Name" required>
+    
+    <label for="Last"></label>
+    <input type="text" name="Last"  placeholder="Last Name" required>
+    
+    <label for="display"><b>Display Name</b></label>
+    <input type="text" name="display" required>
+    
+    <label for="phone"><b>Mobile Number*</b></label>
+    <input type="number" name="phone" required>
+    
+    <label for="gende"><b>Gender*</b></label>
+    <input  name="gende" id="gende" list="gender" required>
+    
+    <br>
+    
+  
+ 
+ <table cellspacing="0" border="0" cellpadding="8">
+<tr><td colspan="2" style="padding-bottom:1px;">
+</td></tr>
+<tr valign="bottom"><td>
+<a href="#" onclick="return ReloadCaptchaImage('CaptchaImage');">
+</a>
+<h1>Captcha*</h1>
+<a href="http://www.snaphost.com/captcha/"><img id="CaptchaImage"
+alt="captcha box" style="border-width:0px;"
+title="captcha box"
+src="https://www.SnapHost.com/captcha/CaptchaImage.aspx?id=QHEZ3NDLCL3T" /></a>
+</td><td>  <br /><i>Enter the code here</i><br />
+<input id="skip_CaptchaCode" name="skip_CaptchaCode" type="text"
+style="width:100px; height:24px; font-size:19px;" maxlength="6" /><br />
+</td></tr></table>
+<script type="text/javascript">
+function ReloadCaptchaImage(captchaImageId) {
+var obj = document.getElementById(captchaImageId);
+var src = '' + obj.src;
+obj.src = '';
+var date = new Date();
+var pos = src.indexOf('&rad=');
+if (pos >= 0) { src = src.substr(0, pos); }
+obj.src = src + '&rad=' + date.getTime();
+return false; }
+</script>
+   
+    <hr>
+    
+    <input type="checkbox" id="myCheck"  onclick="myFunction()">
+    <p id="mycheck" >I have read, understood and accepted the rules of membership</p>
+   
+
+    <div class="clearfix">
+      <button type="button" class="cancelbtn">Cancel</button>
+      <button type="submit" class="signupbtn">Register</button>
+    </div>
+  </div>
+  
+ 
+</form>
+<datalist id="member">
+<option>General</option>
+<option>Platinum</option>
+</datalist>
+
+<datalist id="gender">
+<option>Male</option>
+<option>female</option>
+<option>Not preferred to Specify</option>
+</datalist>
+
+
+ 
+</body>
+</html>
